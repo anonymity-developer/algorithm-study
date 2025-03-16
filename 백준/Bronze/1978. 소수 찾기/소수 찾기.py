@@ -4,7 +4,7 @@
 
 N = int(input())
 M = list(map(int, input().split()))
-primes = list(range(1001))
+primes = list(range(max(M) + 1))
 count = 0
 
 for i in primes:
@@ -13,17 +13,22 @@ for i in primes:
     elif i == 1:
         primes[i] = 0
     else:
-        for _ in primes[i:]:
-            if _ == 0:
-                continue
-            if (_ % i == 0) and (_ // i >= 2):
-                primes[_] = 0  # 지금 index랑 들어간 숫자랑 똑같아서 이렇게 써도 될 듯?
+        # 지금은 index = 해당 index의 값이라서 이 접근이 가능한데 헷갈리고 별로임
+        # for j in primes[i:]:
+            # if j == 0:
+            #     continue
+            # if (j % i == 0) and (j // i >= 2):
+            #     primes[j] = 0
+        # i의 배수부터 i씩 늘려가면서 len(primes)까지 검사하는 구조가 효율적
+        for j in range (i * 2, len(primes), i):
+            primes[j] = 0
 
-filtered_primes = list(filter(lambda num: num != 0, primes))
-
-# max 사용해서 M의 최댓값을 넘어가는 primes를 검사할 필요가 없게 추가
-for j in range(N):
-    if M[j] in filtered_primes:
+# filtered_primes = list(filter(lambda num: num != 0, primes))
+# for _ in range(N):
+#     if M[_] in filtered_primes:
+#         count += 1    
+for i in M:
+    if i in primes:
         count += 1
 
 print(count)

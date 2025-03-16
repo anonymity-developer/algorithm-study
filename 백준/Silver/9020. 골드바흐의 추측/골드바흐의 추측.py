@@ -34,9 +34,9 @@ for i in range(T):
         if mylist[pos2] == 0:
             pos2 += 1
             continue
-        if mylist[pos1] + mylist[pos2] < n:
-            pos2 += 1
-        else:
+        if mylist[pos1] + mylist[pos2] > n:
             pos1 -= 1
+        else:
+            pos2 += 1
       
     print(f'{pos1} {pos2}')

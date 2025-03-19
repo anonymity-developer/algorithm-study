@@ -41,7 +41,7 @@ print(count)
 #     total = sum(abs(perm[i] - perm[i + 1]) for i in range(N - 1))
 #     max_value = max(max_value, total)
 
-# permutations없이, A를 오름차순 정렬 후 양 끝에서 교차로 배치하는 방법(최적해 찾는 근사해법, O(nlogn)
+# permutations없이, A를 오름차순 정렬 후 양 끝에서 교차로 배치하는 방법(최적해 찾는 근사해법, O(nlogn))
 # N = int(input())
 # A = sorted(map(int, input().split()))
 # B = []

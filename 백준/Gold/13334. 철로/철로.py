@@ -47,16 +47,18 @@ for _ in range(N):
     people.append((a, b))
 
 d = int(input())
-people.sort(key=lambda x: x[1])
+people.sort(key=lambda x: x[1]) # 사람들을 끝점을 기준으로 정렬
 
 heap = []
 answer = 0
 
+
+# 철로를 오른쪽 끝(b)에 맞춰놓고, d만큼 왼쪽으로 구간으로 만들어 [b-d, b]범위에 포함되는 사람 찾음
 for a, b in people:
-    start = b - d
-    heapq.heappush(heap, a)
+    start = b - d # b를 구간의 오른쪽 끝으로 고정, 시작점은 start = b - d
+    heapq.heappush(heap, a) # 힙에는 a만 넣음 (왼쪽 지점)
     while heap and heap[0] < start:
-        heapq.heappop(heap) # 힙에 넣기 전에 범위 밖의 사람은 제거
-    answer = max(answer, len(heap))
+        heapq.heappop(heap) # heap[0] < start인 사람은 구간에서 벗어난 거니까 제거
+    answer = max(answer, len(heap)) # 힙에 남아 있는 사람 수 = 해당 구간 안에 (a, b)가 포함된 사람 수
 
 print(answer)

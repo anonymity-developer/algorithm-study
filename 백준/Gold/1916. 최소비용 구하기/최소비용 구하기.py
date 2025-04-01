@@ -2,6 +2,9 @@
 # 1916 최소 비용 구하기
 
 import heapq
+import sys
+
+input = sys.stdin.readline
 
 def dijkstra(graph, start, dest):
     n = len(graph)

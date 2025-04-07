@@ -1,6 +1,3 @@
-# 동적 프로그래밍  |  난이도: 중
-# 9084 동전
-
 import sys
 
 T = int(sys.stdin.readline())
@@ -14,7 +11,7 @@ for _ in range(T):
     dp = [0] * (M+1)
     dp[0] = 1
     for coin in coins:
-        for i in range(1, M+1):
+        for i in range(coin, M+1):
             if i >= coin:
                 dp[i] += dp[i-coin]
     print(dp[M])

@@ -40,7 +40,7 @@ def solution(new_id):
         if len(save_6) > 0 and save_6[-1] == ".":
             del save_6[-1]
     else:
-      save_6 = temp  
+        save_6 = temp  
     save_7 = copy.deepcopy(save_6)
     for i in range(2):
         if 1 <= len(save_7) < 3:
